@@ -4,13 +4,14 @@ function MovieDisplay({ movie }) {
     
     const loaded = () => {
     return (
-        <>
+        <div className="movie-card">
         <h1>{movie.Title}</h1>
-        <h2>{movie.Genre}</h2>
         <h2>{movie.Year}</h2>
-        <h2>Rating: {movie.Ratings[0].Value}</h2>
-        <img src={movie.Poster} alt={movie.Title} />
-        </>
+        <h2>Genre: {movie.Genre}</h2>
+        <div className="rating">Rating: {movie.Ratings?.[0]?.Value || "N/A"}</div>
+        <p><b>Story: </b>{movie.Plot}</p>
+        <img src={movie.Poster} alt={`Poster for ${movie.Title}`} className="movie-poster"/>
+        </div>
     )
 };
 
